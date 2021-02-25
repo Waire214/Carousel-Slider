@@ -3,3 +3,39 @@
     padding: 00;
     box-sizing: border-box;
 }
+.outer-wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    /*transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    position: absolute;*/
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.inner-wrapper{
+    display: flex;
+    width: 400vw;
+    height: 100vh;
+    background-color: aqua;
+}
+.slide{
+    width: 100vw;
+    height: 100vh;
+}
+.one{
+    background-color: rgb(147, 201, 226);
+}
+.two{
+    background-color: rgb(43, 117, 151);
+}
+.three{
+    background-color: rgb(15, 90, 124);
+}
+.four{
+    background-color: rgb(3, 38, 54);
+}
