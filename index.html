@@ -8,13 +8,42 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="outer-wrapper">
+    <!--<div class="outer-wrapper">
         <div class="inner-wrapper">
-            <div class="slide one"></div>
-            <div class="slide two"></div>
-            <div class="slide three"></div>
-            <div class="slide four"></div>
+            <div class="slide one" id="one">
+                <p><a href="#two">GO TO SLIDE TWO</a></p>
+            </div>
+            <div class="slide two" id="two">
+                <p><a href="#three">GO TO SLIDE THREE</a></p>
+            </div>
+            <div class="slide three" id="three">
+                <p><a href="#four">GO TO SLIDE FOUR</a></p>
+            </div>
+            <div class="slide four" id="four">
+                <p><a href="#one">GO TO SLIDE ONE</a></p>
+            </div>
+        </div>
+    </div>-->
+    <div class="container">
+        <div class="carousel">
+            <div class="slider">
+                <div class="first carouselitem"></div>
+                <div class="second carouselitem"></div>
+                <div class="third carouselitem"></div>
+                <div class="fourth carouselitem"></div>
+            </div>
+            <div class="controls">
+                <button id = "prev">back</button>
+                <button id = "next">front</button>
+                <ul>
+                    <li class="selected"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>        
         </div>
     </div>
+    <script src="design.js"></script>
 </body>
 </html>
