@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@media only screen and (max-width: 600px){
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+        height: 1410vh;
+        width: 100vw;
+        flex-wrap: nowrap;
+        font-size: 30px;
+        font-weight: 900;
+    }
+    .headerprop{
+        background-color: aqua;
+        height: 10vh;
+    }
+    .category{
+        background-color: rgb(29, 95, 95);
+        height: 220vh;
+    }
+    .newProduct{
+        background-color: rgb(77, 184, 112);
+        height: 500vh;
+    }
+    .carousel{
+        background-color: rgb(59, 163, 248);
+        height: 60vh;
+    }
+    .trends{
+        background-color: rgb(62, 230, 90);
+        height: 200vh;
+    }
+    .discount{
+        background-color: rgb(100, 117, 36);
+        height: 40vh;
+    }
+    .advantages{
+        background-color: rgb(229, 153, 245);
+        height: 40vh;
+    }
+    .justImages{
+        background-color: rgb(70, 7, 56);
+        height: 240vh;
+    }
+    .payment{
+        background-color: rgb(240, 134, 187);
+        height: 30vh;
+    }
+    .navMenu2{
+        background-color: rgb(24, 77, 3);
+        height: 30vh;
+    }
+    .newsletter{
+        background-color: rgb(221, 133, 2);
+        height: 20vh;
+    }
+    .socialMedia{
+        background-color: rgb(255, 46, 46);
+        height: 20vh;
+    }
+}
