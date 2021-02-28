@@ -3,45 +3,18 @@ const prev = document.querySelector("#prev");
 const next = document.querySelector("#next");
 const indicatorParent = document.querySelector('.controls ul'); 
 const indicators = document.querySelectorAll('.controls li');
-var index = 0;
-//slider.appendChild(slider.firstElementChild);
-//slider.prepend(slider.lastElementChild);
-console.log(slider);
+const list = document.querySelector(".buttons");
+let index = 0;
+let timer = setInterval(autoslide,1000);
 
 prev.addEventListener("click", function(){
-  //index = (index > 0) ? index -1 : 0;
-
- switch (index) {
-   case index > 0:
-     index - 1;
-     break;
- 
-   default:
-    slider.prepend(slider.lastElementChild);
-     break;
- }
-  document.querySelector('.controls .selected').classList.remove('selected');
-  indicatorParent.children[index].classList.add('selected');
-  slider.style.transform = 'translateX(' + (index) * -25 + '%)';
+  prevSlide();
 })
-
 next.addEventListener("click", function(){
-    //index = (index < 4 - 1) ? index+1 : 3;
-    switch (index) {
-      case index < 3:
-        index + 1
-        break;
-    
-      default:
-        slider.appendChild(slider.firstElementChild);   
-        break;
-    }
-  
-    document.querySelector('.controls .selected').classList.remove('selected');
-    indicatorParent.children[index].classList.add('selected');
-    slider.style.transform = 'translateX(' + (index) * -25 + '%)';})
-
-indicators.forEach((indicator, i) => {
+  nextSlide();
+})
+function indicateFunc(){
+  indicators.forEach((indicator, i) => {
     indicator.addEventListener('click', () => {
     document.querySelector('.controls .selected').classList.remove('selected');
     indicator.classList.add('selected');
@@ -50,30 +23,56 @@ indicators.forEach((indicator, i) => {
     
   });
 });
-/*slider.addEventListener("transitionend", function(){
-  if (index === 3){
-    slider.appendChild(slider.firstElementChild);
-  }else if (index === 0){
-    slider.prepend(slider.lastElementChild);
+}
+indicateFunc();
+function prevSlide(){
+  if(index === 0){
+    index = 3;
+  }else{
+    index--;
   }
-  slider.style.transition = "none";
-  slider.style.transform = "translate(0)";
-  setTimeout (function (){
-    slider.style.transition = "all 0.5s";
-  })
-})
-slider.addEventListener("transitionend", function(){
-  slides= document.querySelectorAll(".carouselitem");
-  if(slides[index].id === firstClone.id){
-    slider.style.transition = "none";
-    index = 1;
-    slider.style.transform = `translate(${-25 * index}%)`;
+  changeSlide();
+}
+function nextSlide(){
+  if(index === 3){
+    index = 0;
+  }else{
+    index++;
   }
+  changeSlide();
+}
+function changeSlide(){
+  document.querySelector('.controls .selected').classList.remove('selected');
+  indicatorParent.children[index].classList.add('selected');
+  slider.style.transform = 'translateX(' + (index) * -25 + '%)';
+}
+prev.addEventListener("mouseover", function(){
+  resetTimer();
 })
-sliderId();
-function sliderId(){ setInterval(() => {
-  index++;
-  slider.style.transform = `translate(${-25 * index}%)`;
-  slider.style.transition = "0.7s";
-}, 1000);
-}*/
+prev.addEventListener("mouseout", function(){
+  timer=setInterval(autoslide,1000);
+})
+next.addEventListener("mouseover", function(){
+  resetTimer();
+})
+next.addEventListener("mouseout", function(){
+  timer=setInterval(autoslide,1000);
+})
+list.addEventListener("mouseover", function(){
+  resetTimer();
+})
+list.addEventListener("mouseout", function(){
+  timer=setInterval(autoslide,1000);
+})
+
+function resetTimer(){
+  // when click to indicator or controls button 
+  // stop timer 
+  clearInterval(timer);
+  // then started again timer
+  //timer=setInterval(autoslide,1500);
+}
+
+function autoslide(){
+  nextSlide();
+}
